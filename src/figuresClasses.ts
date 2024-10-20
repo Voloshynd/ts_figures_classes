@@ -13,7 +13,7 @@ export class Triangle implements Figure {
     public b: number,
     public c: number,
   ) {
-    const numbers: number[] = Array.from([a, b, c]).sort(
+    const numbers: number[] = Array.from([this.a, this.b, this.c]).sort(
       (numA: number, numB: number) => {
         return numB - numA;
       },
@@ -44,7 +44,7 @@ export class Circle implements Figure {
     public color: Figure['color'],
     public a: number,
   ) {
-    if (a <= 0) {
+    if (this.a <= 0) {
       throw new Error(`radius ${a} can't form a circle`);
     }
   }
@@ -64,7 +64,7 @@ export class Rectangle implements Figure {
     public a: number,
     public b: number,
   ) {
-    if (a <= 0 || b <= 0) {
+    if (this.a <= 0 || this.b <= 0) {
       throw new Error(
         `sides ${a <= 0 ? a : b <= 0 ? b : { a, b }} can't form a rectangle`,
       );
